@@ -1,10 +1,8 @@
 // Base stuff
 @import 'base/_reset.scss';
 @import 'base/_variables.scss';
+@import 'base/_index.scss';
 @import 'base/_helpers.scss';
-
-// Base stuff extended
-@import 'views/_layout.scss';
 
 // View Layouts
 @import 'views/_game.scss';
@@ -15,6 +13,7 @@
 @import 'widgets/_input.scss';
 @import 'widgets/_panel.scss';
 @import 'widgets/_dropdown.scss';
+@import 'widgets/marquee.scss';
 
 // Plugins
 @import 'plugins/_hint.scss';

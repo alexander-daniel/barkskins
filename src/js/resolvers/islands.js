@@ -16,30 +16,26 @@ const adjustPopulation = (state, island) => {
   };
 };
 
-// const adjustSize = (state, island) => {
-//   const diff = Math.random() > 0.5 ? 5 : -5;
-//   const newState = state.setIn(
-//     ['islands', island.get('id'), 'size'],
-//     island.get('size') + diff
-//   );
-//   // debugger;
-//   return newState;
-// };
+// Just a dummy resolver to see some action on the UI.
+const move = (state, island) => {
+  const islandID = island.id;
+  const selectedIsland = state.islands[islandID];
 
-// const move = (state, island) => {
-//   // const diff = Math.random() > 0.5 ? 5 : -5;
-//   const newState = state.setIn(
-//     ['islands', island.get('id'), 'location'],
-//     `${Math.floor(Math.random() * 10)}:${Math.floor(Math.random() * 10)}`
-//   );
-//   // debugger;
-//   return newState;
-// };
+  return {
+    ...state,
+    islands: {
+      ...state.islands,
+      [islandID]: {
+        ...selectedIsland,
+        location: `${Math.floor(Math.random() * 10)}:${Math.floor(Math.random() * 10)}`
+      }
+    }
+  };
+};
 
 const resolveIslands = createResolver([
   adjustPopulation,
-  // adjustSize,
-  // move
+  move
 ]);
 
 export default resolveIslands;

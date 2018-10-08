@@ -14,7 +14,12 @@ class NewGameMenu extends React.Component {
     };
   }
 
-  connect() {
+  componentDidMount() {
+    this._familyNameInput.focus();
+  }
+
+  connect(evt) {
+    evt.preventDefault();
     const { familyName } = this.state;
     this.setState({ isConnecting: true });
     this.props.startGame(familyName);
@@ -23,13 +28,14 @@ class NewGameMenu extends React.Component {
 
   render() {
     return (
-      <div style={{ width: '420px', flex: '0 1' }}>
+      <form onSubmit={this.connect.bind(this)}>
         <div>
           <div className="+push-bottom">{'Family Name'}</div>
           <div className="+push-bottom +display-flex">
             <input
               className="text-input"
               placeholder={''}
+              ref={(c) => (this._familyNameInput = c)}
               value={this.state.familyName}
               onChange={({ target }) => this.setState({ familyName: target.value })}
             />
@@ -39,10 +45,10 @@ class NewGameMenu extends React.Component {
 
 
         <div className="+display-flex">
-          <Button onClick={this.connect.bind(this)}>{'start'}</Button>
+          <Button type="submit" onClick={this.connect.bind(this)}>{'start'}</Button>
           <Button className="+push-left inactive" onClick={() => this.props.history.push('/menu')}>{'back'}</Button>
         </div>
-      </div>
+      </form>
     );
   }
 }

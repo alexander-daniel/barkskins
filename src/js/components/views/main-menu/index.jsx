@@ -6,13 +6,15 @@ import NewGameMenu from './new-game';
 import LoadGameMenu from './load-game';
 
 const MainMenu = () => (
-  <div className="main-menu +soft-double">
+  <div className="main-menu">
     <MainMenuHeader />
-    <Switch>
-      <Route path="/menu/new-game" component={NewGameMenu} />
-      <Route path="/menu" exact={true} component={LoadGameMenu} />
-      <Route component={() => <Redirect to={'/menu'}/>} />
-    </Switch>
+    <div className="main-menu-content">
+      <Switch>
+        <Route path="/menu/new-game" component={NewGameMenu} />
+        <Route path="/menu" exact={true} component={LoadGameMenu} />
+        <Route component={() => <Redirect to={'/menu'}/>} />
+      </Switch>
+    </div>
   </div>
 );
 

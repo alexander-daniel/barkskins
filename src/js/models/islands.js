@@ -1,15 +1,13 @@
 import RNG from '_utils/chance';
 import { createGeoKey } from '_utils/geokey';
 
-function getRandomTerrain() {
-  return RNG.pick([
-    'Hills',
-    'Mountains',
-    'Plains'
-  ]);
-}
+const getRandomTerrain = () => RNG.pick([
+  'Hills',
+  'Mountains',
+  'Plains'
+]);
 
-function getDescription(terrain) {
+const getDescription = (terrain) => {
   switch (terrain) {
     case 'Hills':
       return 'Rolling hills as far as the eye can see. This seems a good place as any to settle down.';
@@ -20,7 +18,7 @@ function getDescription(terrain) {
     default:
       throw new Error(`No description for terrain ${terrain}`);
   }
-}
+};
 
 export const createNewIsland = (islandName = RNG.city()) => {
   const terrain = getRandomTerrain();
@@ -28,7 +26,10 @@ export const createNewIsland = (islandName = RNG.city()) => {
     id: RNG.hash(),
     name: islandName,
     terrain,
-    location: createGeoKey(RNG.integer({ min: -20, max: 20 }), RNG.integer({ min: -20, max: 20 })),
+    location: createGeoKey(
+      RNG.integer({ min: -20, max: 20 }),
+      RNG.integer({ min: -20, max: 20 })
+    ),
     description: getDescription(terrain),
     owner: null,
     population: 100,

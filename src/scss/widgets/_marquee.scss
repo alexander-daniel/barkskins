@@ -1,0 +1,30 @@
+.marquee-container {
+  margin-bottom: 2px;
+  height: 18px;
+  width: 220px;
+
+  overflow: hidden;
+  position: relative;
+
+  .marquee {
+    display: flex;
+    align-items: center;
+    width: 200%;
+    height: 18px;
+
+    position: absolute;
+    overflow: hidden;
+
+    -webkit-animation: marquee 5s linear infinite;
+  }
+
+  .text {
+    float: left;
+    width: 50%;
+  }
+}
+
+@keyframes marquee {
+  0% { left: 0; }
+  100% { left: -100%; }
+}

@@ -43,8 +43,8 @@ class Home extends React.Component {
         <XYPlot
           height={450}
           width={600}
-          xDomain={[-20, 20]}
-          yDomain={[-20, 20]}
+          xDomain={[0, 20]}
+          yDomain={[0, 20]}
           style={{ background: '#3574AF' }}
         >
           <MarkSeries

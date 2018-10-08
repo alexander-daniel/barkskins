@@ -21,9 +21,8 @@
     cursor: pointer;
   }
 
-  &.\+is-active {
+  &.\+is-active, &:active, &:focus {
     background-color: darken($cobalt, 5%);
-    color: $color-white;
     @extend .\+inset;
   }
 

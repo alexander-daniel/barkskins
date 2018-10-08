@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import MainHeader from './header';
-import Sound from './sound';
 import Home from './home';
 import Messages from './messages';
 import Islands from './islands';
