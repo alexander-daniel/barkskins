@@ -41,8 +41,6 @@
   "scripts": {
     "start": "webpack-dev-server --hot --open --mode development",
     "build": "webpack --mode production",
-    "watch": "webpack --mode development -w",
-    "build-dev": "webpack",
     "deploy": "yarn build && cd static && now && now alias && now remove barkskins-client --safe -y"
   }
 }
