@@ -1,5 +1,20 @@
 ## Barkskins -- (mostly) text based strategy game
 
+# usage
+clone the repo & cd into it
+
+**install deps**
+```
+$ yarn install
+```
+
+**development usage**
+Will fire up a webpack development server
+```
+yarn run start
+```
+Access the game in your browser at `http://localhost:8888`!
+
 #### `src/actions`
 redux actions for updating the state. Some actions are called by user input, others as a result of a turn elapsing.
 
