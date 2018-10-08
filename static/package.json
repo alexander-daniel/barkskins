@@ -1,0 +1,12 @@
+{
+  "name": "client-deploy",
+  "scripts": {
+    "start": "serve -s ."
+  },
+  "dependencies": {
+    "serve": "latest"
+  },
+  "now": {
+    "alias": ["barkskins.xyz"]
+  }
+}
