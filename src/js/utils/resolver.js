@@ -7,19 +7,25 @@
  * inside its own reducer chain call
  */
 export function createResolver(reducers = [], filterFunc) {
-  return (initialState, items = []) => {
-    return items.reduce((state, item) => {
+  return (initialState, items) => {
+    if (items && items.length) {
+      return items.reduce((state, item) => {
 
-      if (filterFunc && !filterFunc(item)) {
-        return state;
-      }
+        if (filterFunc && !filterFunc(item)) {
+          return state;
+        }
 
-      // Run the unit through the chain of resolver functions
-      // and keep collecting the resulting state.
-      return reducers.reduce((accumlatedState, currentResolver) => {
-        return currentResolver(accumlatedState, item);
-      }, state);
+        // Run the unit through the chain of resolver functions
+        // and keep collecting the resulting state.
+        return reducers.reduce((accumlatedState, currentResolver) => {
+          return currentResolver(accumlatedState, item);
+        }, state);
 
+      }, initialState);
+    }
+
+    return reducers.reduce((accumlatedState, currentResolver) => {
+      return currentResolver(accumlatedState);
     }, initialState);
   };
 }

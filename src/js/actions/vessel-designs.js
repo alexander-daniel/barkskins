@@ -1,10 +1,10 @@
-import RNG from '_utils/chance';
+import { createVesselDesign as vesselDesign } from '_models/vessel-designs';
 
 export const UPDATE_VESSEL_DESIGN = 'UPDATE_VESSEL_DESIGN';
-export function updateVesselDesign(designID, design) {
+export function updateVesselDesign(design) {
   return {
     type: UPDATE_VESSEL_DESIGN,
-    designID,
+    designID: design.id,
     design
   };
 }
@@ -12,11 +12,8 @@ export function updateVesselDesign(designID, design) {
 export function createVesselDesign(spec) {
   return (dispatch) => {
     try {
-      const design = {
-        id: RNG.hash(),
-        name: spec.name
-      };
-      dispatch(updateVesselDesign(design.id, design));
+      const des = vesselDesign(spec);
+      dispatch(updateVesselDesign(des));
     }
 
     catch (err) {

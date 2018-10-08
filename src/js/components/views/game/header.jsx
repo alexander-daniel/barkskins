@@ -27,6 +27,11 @@ const LINKS = [
     path: '/game/vessel-designer'
   },
   {
+    panelName: 'Research',
+    shouldDisplay: true,
+    path: '/game/research'
+  },
+  {
     panelName: 'Messages',
     shouldDisplay: true,
     path: '/game/messages'

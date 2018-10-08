@@ -10,6 +10,8 @@ module.exports = {
     './src/scss/style.scss'
   ],
 
+  devtool: 'eval-source-map',
+
   output: {
     path: STATIC_DIR,
     filename: 'js/bundle.js'

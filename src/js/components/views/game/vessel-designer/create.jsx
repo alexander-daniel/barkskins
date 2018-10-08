@@ -3,18 +3,21 @@ import { connect } from 'react-redux';
 import Input from '_widgets/input';
 import Button from '_widgets/button';
 import { createVesselDesign } from '_actions/vessel-designs';
+import { Equipment } from '_models/vessel-designs';
 
 class DesignCreator extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: ''
+      name: '',
+      equipment: {
+
+      }
     };
   }
 
   create(evt) {
-    //
-    this.props.dispatch(createVesselDesign({ name: this.state.name }));
+    this.props.dispatch(createVesselDesign({ ...this.state }));
     evt.preventDefault();
   }
 
@@ -31,6 +34,19 @@ class DesignCreator extends React.Component {
               onChange={(evt) => this.setState({ name: evt.target.value })}
               placeholder={'Vessel Class Name'}
             />
+          </div>
+
+          <div className="+push-bottom">
+            <span>{'Equipment'}</span>
+            <select style={{ display: 'block' }}>
+              { Object.keys(Equipment).map((e, i) => {
+                return (
+                  <option key={i}>
+                    {e}
+                  </option>
+                );
+              })}
+            </select>
           </div>
 
           <Button type="submit" onClick={this.create.bind(this)}>

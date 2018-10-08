@@ -13,7 +13,7 @@ const calendar = (
 ) => {
   switch (action.type) {
     case actions.UPDATE_CALENDAR:
-      return state.merge(action.options);
+      return state.merge(action.payload);
 
     default:
       return state;

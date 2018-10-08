@@ -1,4 +1,3 @@
-import Immutable from 'immutable';
 import { detailedDiff } from 'deep-object-diff';
 import { updateUser } from './user';
 import { MESSAGE_TYPE, addMessage } from './messages';
@@ -7,22 +6,9 @@ import { updateCalendar } from './calendar';
 import { createUnit, updateUnits } from './units';
 import { createBuilding } from './buildings';
 import resolveIslands from '_resolvers/islands';
+import resolveCalendar from '_resolvers/calendar';
 import { readTextFile, encode, decode } from '_utils/files';
-
-const stateTransformer = (combinedState) => {
-  const state = combinedState;
-  let newState = {};
-
-  for (let i of Object.keys(state)) {
-    if (Immutable.Iterable.isIterable(state[i])) {
-      newState[i] = state[i].toJS();
-    } else {
-      newState[i] = state[i];
-    }
-  }
-
-  return newState;
-};
+import stateTransformer from '_utils/state-transformer';
 
 export const startGame = (familyName) => (dispatch) => {
   dispatch(createIsland());
@@ -60,6 +46,10 @@ const handleUpdates = (updates) => (dispatch) => {
 
       case 'units':
         dispatch(updateUnits(update));
+        break;
+
+      case 'calendar':
+        dispatch(updateCalendar(update));
         break;
 
       default:
@@ -105,6 +95,7 @@ export const gameTick = () => (dispatch, getState) => {
      * Process resolvers. They each take state and do something to it
      */
     newState = resolveIslands(newState, Object.values(newState.islands));
+    newState = resolveCalendar(newState);
 
     /*
      * Get diffed state, but redux store not updated yet.
@@ -119,12 +110,6 @@ export const gameTick = () => (dispatch, getState) => {
     dispatch(handleUpdates(updated));
     dispatch(handleAdds(added));
     dispatch(handleDeletes(deleted));
-
-    /*
-     * update the calendar && weather,
-     * TODO: i suppose this could come from resolvers as well.
-     */
-    dispatch(updateCalendar());
 
     dispatch(addMessage({
         title: 'You have survived another day!',

@@ -6,6 +6,7 @@ import Home from './home';
 import Messages from './messages';
 import Islands from './islands';
 import Fleet from './fleet';
+import Research from './research';
 import VesselDesigner from './vessel-designer';
 
 const Game = ({ isConnected }) => {
@@ -23,6 +24,7 @@ const Game = ({ isConnected }) => {
           <Route path="/game/islands" component={Islands} />
           <Route path="/game/fleet" component={Fleet} />
           <Route path="/game/vessel-designer" component={VesselDesigner} />
+          <Route path="/game/research" component={Research} />
           <Route path="/game/messages" component={Messages} />
           <Route component={() => <Redirect to="/game/home"/>}/>
         </Switch>
