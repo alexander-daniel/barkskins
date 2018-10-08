@@ -1,0 +1,13 @@
+.text-input {
+  display: flex;
+  border: 1px solid $color-black;
+  border-radius: $base-spacing-half;
+  padding: $base-spacing;
+  background-color: $color-white;
+  color: $color-black;
+  min-width: 32px;
+  font-size: 10pt;
+  outline: none;
+  // @extend .\+box-shadow;
+  // margin-bottom: $base-spacing;
+}
