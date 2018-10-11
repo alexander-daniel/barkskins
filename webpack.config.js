@@ -6,8 +6,7 @@ const STATIC_DIR = path.resolve(__dirname, 'static');
 module.exports = {
   mode: 'development',
   entry: [
-    './src/js/index.js',
-    './src/scss/style.scss'
+    './src/js/index.js'
   ],
 
   devtool: 'eval-source-map',
@@ -58,7 +57,7 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: './src/index.html',
       filename: './index.html',
-      inject: false
+      inject: true
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()
