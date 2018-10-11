@@ -1,10 +1,4 @@
-const pipe = (...fns) => {
-  return (x) => {
-    return fns.reduce((v, f) => {
-      return f(v);
-    }, x);
-  };
-};
+import { pipe } from '_utils/fn';
 
 export const readTextFile = (file) => new Promise(resolve => {
   const reader = new FileReader();
