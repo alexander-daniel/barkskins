@@ -1,3 +1,4 @@
+import Immutable from 'immutable';
 import { detailedDiff } from 'deep-object-diff';
 import { updateUser } from './user';
 import { MESSAGE_TYPE, addMessage } from './messages';

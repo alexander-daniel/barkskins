@@ -41,3 +41,42 @@ are called, the user has already made all of their moves.
 
 #### `src/utils`
 Anything else, RNGs, utility functions and the like.
+
+
+# IDEAS
+## Things a user can do
+- Handle production in colonies
+- Handle construction in colonies
+- Choose research in colonies
+- Manage citizens in colonies
+- Design Ships
+- Control expeditions (give fleets orders)
+- Engage in diplomacy (part of a fleets orders?)
+- Found colonies on islands (part of a fleets orders?)
+- ??? more ideas
+
+## Turn resolution mechanics and ordering
+- Population Grows on islands (or decreases)
+- Workers are assigned to workshops
+- Ships are checked to see if they have enough life supplies
+  - If they don't, maybe morale goes down until they become pirates
+- Monsters? move around
+- Donations from Nobility arrive (where? in capital island? all controlled islands?)
+- Per island, Production is calculated,
+- Per island, Supply & Demand are calculated
+- Raw Material Production is calculated
+- Total empire Wealth is calculated
+- Ships are checked for maintenance
+- Land Troops are maintained
+- Acts of god proceed
+- Infrastructure renovations take place
+- Production of goods takes place
+- Ship Construction
+- Troop Training
+- Research takes place
+- Expeditions expedite
+- Ship Crew Training
+- Espionage
+- Calendar switches to new date
+- Check Game Over
+- ??? more ideas
